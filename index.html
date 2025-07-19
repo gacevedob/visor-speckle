@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visor Speckle</title>
+  <style>
+    html, body { 
+      width: 100%; 
+      height: 100%; 
+      margin: 0; 
+      padding: 0; 
+      overflow: hidden; 
+    }
+    #viewer-container { 
+      width: 100%; 
+      height: 100%; 
+    }
+  </style>
+</head>
+<body>
+  <div id="viewer-container"></div>
+  <script type="module">
+    import { Viewer, DefaultViewerParams } from 'https://releases.speckle.systems/viewer/2.18.3/viewer.js';
+
+    const container = document.getElementById('viewer-container');
+    const viewer = new Viewer(container, DefaultViewerParams);
+    await viewer.init();
+
+    const modelUrl = 'https://app.speckle.systems/projects/8ccc72c0c3/models/25f2f315ec'; 
+    await viewer.loadObject(modelUrl);
+
+    console.log('Visor de Speckle cargado con éxito!');
+  </script>
+</body>
+</html>
